@@ -10,6 +10,14 @@ The repository contains the following main components:
 - **ironpulse-app**: A TypeScript-based application (Vite).
 - **ironpulse-landing**: Contains resources and code related to the project's landing page.
 
+## Tech Stack
+
+- **Frontend**: React, TypeScript, Vite
+- **Styling**: Tailwind CSS, PostCSS
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
+
+
 ## Getting Started
 
 To run any of the sub-projects, navigate to the directory and install dependencies:
