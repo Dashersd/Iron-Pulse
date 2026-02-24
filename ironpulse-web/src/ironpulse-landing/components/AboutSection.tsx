@@ -8,8 +8,15 @@ export const AboutSection = () => {
 
   return (
     <section ref={ref} className="py-24 px-6 bg-zinc-950 relative overflow-hidden">
-      {/* Static background effect - no animation */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-red-600/8 rounded-full blur-2xl" />
+      {/* Background kinetic effect */}
+      <motion.div
+        className="absolute top-0 left-0 w-96 h-96 bg-red-600/10 rounded-full blur-[120px]"
+        animate={{
+          x: isInView ? [0, 100, 0] : 0,
+          y: isInView ? [0, 50, 0] : 0,
+        }}
+        transition={{ duration: 10, repeat: Infinity }}
+      />
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
@@ -18,16 +25,16 @@ export const AboutSection = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="text-center mb-16"
         >
-          <motion.h2 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block" whileHover={{ scale: 1.05 }}>
-            About IronPulse
+          <motion.h2 className="text-4xl md:text-5xl font-bold mb-6 relative inline-block group">
+            <span className="relative z-10">About IronPulse</span>
             <motion.div
-              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-600 to-transparent"
+              className="absolute -bottom-2 left-0 right-0 h-1 bg-red-600"
               initial={{ scaleX: 0 }}
               animate={isInView ? { scaleX: 1 } : {}}
               transition={{ delay: 0.5, duration: 0.8 }}
             />
           </motion.h2>
-          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
             We&apos;re not just a gym. We&apos;re a forge where determination meets transformation. Every rep, every drop
             of sweat, every breakthrough – it all happens here. Join us and discover what you&apos;re truly capable of.
           </p>
@@ -45,47 +52,30 @@ export const AboutSection = () => {
                 y: -10,
                 boxShadow: '0 30px 60px rgba(220, 38, 38, 0.4)',
               }}
-              className="bg-zinc-900 p-8 rounded-sm border border-zinc-800 hover:border-red-600 transition-all relative group"
+              className="bg-zinc-900 p-8 rounded-sm border border-zinc-800 hover:border-red-600 transition-all relative group overflow-hidden"
             >
               {/* Pulsing glow background */}
               <motion.div
                 className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-20 rounded-sm blur-xl`}
                 animate={{
-                  opacity: [0, 0.3, 0],
+                  opacity: [0, 0.2, 0],
                 }}
-                transition={{ duration: 2, repeat: Infinity }}
+                transition={{ duration: 3, repeat: Infinity }}
               />
 
-              {/* Icon with pulse effect */}
-              <motion.div
-                className="mb-6 relative"
-                animate={{
-                  scale: [1, 1.1, 1],
-                }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              >
-                <card.icon className="w-16 h-16 text-red-600 mx-auto relative z-10" />
-                {/* Ripple effect */}
+              <div className="mb-6 relative">
+                <card.icon className="w-16 h-16 text-red-600 mx-auto relative z-10 group-hover:scale-110 transition-transform duration-500" />
                 <motion.div
-                  className="absolute inset-0 bg-red-600 rounded-full blur-2xl opacity-40"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.4, 0.1, 0.4],
-                  }}
+                  className="absolute inset-0 bg-red-600 rounded-full blur-2xl opacity-20"
+                  animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0.4, 0.2] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-              </motion.div>
+              </div>
 
-              <h3 className="text-2xl font-bold mb-3 relative z-10">{card.title}</h3>
-              <p className="text-gray-400 relative z-10">{card.desc}</p>
+              <h3 className="text-2xl font-bold mb-3 relative z-10 tracking-tight">{card.title}</h3>
+              <p className="text-gray-400 relative z-10 font-light">{card.desc}</p>
 
-              {/* Corner accent with fade */}
-              <motion.div
-                className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-red-600/20 to-transparent"
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ delay: i * 0.2 + 0.3 }}
-              />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-red-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </motion.div>
           ))}
         </div>
@@ -93,4 +83,3 @@ export const AboutSection = () => {
     </section>
   );
 };
-

@@ -4,7 +4,7 @@ import { Activity, Award, Clock, Dumbbell, Flame, Heart, Target, Users, Zap } fr
 export type AboutCard = { icon: LucideIcon; title: string; desc: string; color: string };
 export type Program = { title: string; desc: string; icon: LucideIcon; gradient: string };
 export type Feature = { icon: LucideIcon; title: string; desc: string; color: string };
-export type Trainer = { name: string; specialty: string; initials: string; color: string };
+export type Trainer = { name: string; specialty: string; initials: string; color: string; image: string };
 export type Plan = { name: string; price: number; features: string[]; recommended: boolean };
 export type Testimonial = { name: string; text: string; rating: number };
 
@@ -49,9 +49,27 @@ export const whyChooseUsFeatures: Feature[] = [
 ];
 
 export const trainers: Trainer[] = [
-  { name: 'Marcus Steel', specialty: 'Strength & Conditioning', initials: 'MS', color: 'from-red-600 to-red-800' },
-  { name: 'Sofia Blaze', specialty: 'HIIT & Cardio', initials: 'SB', color: 'from-orange-600 to-red-600' },
-  { name: 'David Iron', specialty: 'Functional Training', initials: 'DI', color: 'from-red-800 to-red-950' },
+  {
+    name: 'Marcus Steel',
+    specialty: 'Strength & Conditioning',
+    initials: 'MS',
+    color: 'from-red-600 to-red-800',
+    image: 'https://static.vecteezy.com/system/resources/previews/027/186/966/large_2x/black-male-bodybuilder-exercising-at-the-gym-focusing-on-his-arms-while-looking-towards-an-open-area-fit-african-american-man-working-out-his-biceps-pr-free-photo.jpg'
+  },
+  {
+    name: 'Sofia Blaze',
+    specialty: 'HIIT & Cardio',
+    initials: 'SB',
+    color: 'from-orange-600 to-red-600',
+    image: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=800'
+  },
+  {
+    name: 'David Iron',
+    specialty: 'Functional Training',
+    initials: 'DI',
+    color: 'from-red-800 to-red-950',
+    image: 'https://tse1.mm.bing.net/th/id/OIP.M-FPMiHUjo2QiNeLZRjOmwHaE8?pid=Api&P=0&h=220'
+  },
 ];
 
 export const membershipPlans: Plan[] = [
