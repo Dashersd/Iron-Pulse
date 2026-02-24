@@ -82,10 +82,10 @@ export const TrainersCoverflow = () => {
                                     absolute w-[280px] md:w-[380px] h-[450px] md:h-[580px] rounded-[3rem] overflow-hidden
                                     transition-all duration-[800ms] cubic-bezier(0.19, 1, 0.22, 1) cursor-pointer
                                     ${isActive
-                                        ? 'z-40 border-4 border-white shadow-[0_30px_60px_-15px_rgba(220,38,38,0.5)] ring-12 ring-red-600/5'
-                                        : 'z-20 border-2 border-zinc-900/50'
+                                        ? 'z-40 border-4 border-red-600 shadow-[0_30px_60px_-15px_rgba(220,38,38,0.5)] ring-12 ring-red-600/5'
+                                        : 'z-20 border-2 border-zinc-800'
                                     }
-                                    bg-white flex flex-col
+                                    bg-black flex flex-col
                                 `}
                                 style={{
                                     transform: `translateX(${xPos}px) translateZ(${zPos}px) rotateY(${rotation}deg) rotateZ(${rotateZ}deg) scale(${scale})`,
@@ -94,18 +94,18 @@ export const TrainersCoverflow = () => {
                                     filter: isActive ? 'none' : 'blur(4px) ',
                                 }}
                             >
-                                {/* Top Image Section (White Inset Style) */}
+                                {/* Top Image Section (Gojo Style) */}
                                 <div className="h-[72%] p-5 relative">
-                                    <div className="w-full h-full rounded-[2.5rem] bg-zinc-900 flex items-center justify-center overflow-hidden shadow-inner relative">
+                                    <div className="w-full h-full rounded-[2.5rem] bg-zinc-950 flex items-center justify-center overflow-hidden shadow-inner relative">
                                         <img
                                             src={trainer.image}
                                             alt={trainer.name}
                                             className={`w-full h-full object-cover transition-all duration-700 ${isActive ? 'scale-110 grayscale-0' : 'scale-100 grayscale opacity-40'}`}
                                         />
 
-                                        {/* Trophy Badge from Ref */}
+                                        {/* Yellow Trophy Badge from Ref */}
                                         {isActive && (
-                                            <div className="absolute top-6 right-6 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg border-4 border-white rotate-12 z-20">
+                                            <div className="absolute top-6 right-6 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg border-4 border-black rotate-12 z-20">
                                                 <Trophy size={24} className="text-black fill-black" />
                                             </div>
                                         )}
@@ -114,10 +114,10 @@ export const TrainersCoverflow = () => {
 
                                 {/* Content Section (Clean Typography) */}
                                 <div className="h-[28%] px-8 pb-8 flex flex-col items-center justify-center text-center">
-                                    <h3 className="text-3xl font-black text-black leading-none uppercase tracking-tight mb-2">
+                                    <h3 className="text-3xl font-black text-white leading-none uppercase tracking-tight mb-2">
                                         {trainer.name}
                                     </h3>
-                                    <p className="text-[11px] font-bold text-zinc-400 uppercase tracking-[0.4em] leading-none">
+                                    <p className="text-[11px] font-bold text-red-600 uppercase tracking-[0.4em] leading-none">
                                         {trainer.specialty.split(' ')[0]} REAPER
                                     </p>
                                     <div className={`h-1 bg-red-600/40 mt-5 transition-all duration-700 ${isActive ? 'w-12' : 'w-0'}`} />
